@@ -30,16 +30,10 @@
             return(0);
         }
         */
-        const r = Module.fnmatch("*.c", "hello.c", 0);
-        if (r == 0) {
-          console.log("matches");
-        } else if (r == Module.FNM_NOMATCH) {
-          console.log("does not  match");
-        } else {
-          console.error("fnmatch() error");
-        }
+        const byteArray = Module.getBytes("abc");
+        console.log(byteArray);
       }
     };
   </script>
-  <script src="./fnmatch.js"></script>
+  <script src="./binary-data-processing-emscripten.js"></script>
 </html>
