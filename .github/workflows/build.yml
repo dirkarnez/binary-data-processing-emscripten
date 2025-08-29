@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      targetZip: fnmatch.js-${{ github.ref_name }}-emscripten.zip
+      targetZip: ${{ github.event.repository.name }}.js-${{ github.ref_name }}-emscripten.zip
     steps:
       - uses: actions/checkout@v4
 
@@ -28,11 +28,11 @@ jobs:
           -v $(pwd):/src \
           -u $(id -u):$(id -g) \
           emscripten/emsdk \
-          emcc -lembind -o fnmatch.js main.cpp
+          emcc -lembind -o ${{ github.event.repository.name }}.js main.cpp
 
-      - run: cp -f 'fnmatch.js' 'committing'
+      - run: cp -f '${{ github.event.repository.name }}.js' 'committing'
           
-      - run: cp -f 'fnmatch.wasm' 'committing'
+      - run: cp -f '${{ github.event.repository.name }}.wasm' 'committing'
           
       - run: cp -f 'index.html' 'committing'
 
@@ -48,8 +48,8 @@ jobs:
         with:
           type: 'zip'
           path: |
-            fnmatch.js
-            fnmatch.wasm
+            ${{ github.event.repository.name }}.js
+            ${{ github.event.repository.name }}.wasm
             index.html
           filename: "${{ env.targetZip }}"
 
