@@ -10,7 +10,7 @@ val get_bytes(std::string input) {
     std::vector<unsigned char> vals(input.length());
     for (int i = 0; i < input.length(); i++)  //We interate through string passed and add to vectors
     {
-        vals.push_back((unsigned char)input.at(i));
+        vals.at(i) = ((unsigned char)input.at(i));
     }
     return val(typed_memory_view(vals.size(), vals.data()));
 }
