@@ -4,3 +4,4 @@ Pass string to C++ and returns its ASCII code: for example `"abc"` returns `[97,
 
 ### Tutorials
 - [Debugging memory leaks in WebAssembly using Emscripten  |  Articles  |  web.dev](https://web.dev/articles/webassembly-memory-debugging)
+- [[WebAssembly]初学笔记 使用Embind在Javascript与C++之间交互 | 佳佳酱](https://luojia.me/9855/)
